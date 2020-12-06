@@ -42,27 +42,26 @@ class _CounterPageState extends State<CounterPage> {
     ));
   }
 
+  Widget _button(IconData icon, MaterialColor color, callback) {
+    return FloatingActionButton(
+      onPressed: callback,
+      child: Icon(icon),
+      backgroundColor: color,
+    );
+  }
+
   Widget _createButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         SizedBox(width: 30),
-        FloatingActionButton(
-            onPressed: _reset,
-            child: Icon(Icons.exposure_zero),
-            backgroundColor: Colors.orange),
+        _button(Icons.exposure_zero, Colors.orange, _reset),
         Expanded(child: SizedBox()),
-        FloatingActionButton(
-            onPressed: _subtract,
-            child: Icon(Icons.remove),
-            backgroundColor: Colors.orange),
+        _button(Icons.remove, Colors.orange, _subtract),
         SizedBox(
           width: 5,
         ),
-        FloatingActionButton(
-            onPressed: _add,
-            child: Icon(Icons.add),
-            backgroundColor: Colors.orange),
+        _button(Icons.add, Colors.orange, _add)
       ],
     );
   }
